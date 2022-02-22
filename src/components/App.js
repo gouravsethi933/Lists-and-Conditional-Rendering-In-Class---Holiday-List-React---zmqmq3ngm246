@@ -38,19 +38,15 @@ class App extends Component {
   }
 
   render() {
-    var indianLocations = this.cityList.filter((item, index) => {
-      return item.country === "India";
+    const newVact = this.cityList.filter((el) => {
+      return el.country === "India";
     });
-    var otherLocations = this.cityList.filter((item, index) => {
-      return item.country !== "India";
-    });
-    var newList = [...indianLocations, ...otherLocations];
     return (
       <div id="main">
         <ol>
-          {newList.map((item, index) => (
-            <li key={`location${index + 1}`}>{item.name}</li>
-          ))}
+          {newVact.map((fcity, index) => {
+            return <li key={"location" + (index + 1)}>{fcity.name}</li>;
+          })}
         </ol>
       </div>
     );
